@@ -99,7 +99,9 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "open terminal", terminal },
+				    { "reboot", reboot },
+				    { "shutdown", shutdown }
                                   }
                         })
 
@@ -283,7 +285,7 @@ globalkeys = awful.util.table.join(
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
-        end),
+       end),
 
     awful.key({ modkey,           }, "x", function () awful.screen.focus_relative(1)       end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
@@ -365,8 +367,8 @@ if screen.count() > 1 then
         { rule = { class = "Xdialog" },
         properties = { floating = true } },
 
-        { rule = { name = "Chromium" },
-        properties = { tag = tags[2][1] } },
+        { rule = { name = "Chrome" },
+        properties = { tag = tags[1][1] } },
         { rule = { name = "Thunderbird" },
         properties = { tag = tags[2][2] } },
     }
@@ -383,10 +385,10 @@ else
         properties = { floating = true } },
         { rule = { class = "gimp" },
         properties = { floating = true } },
-        { rule = { name = "Chromium" },
-        properties = { tag = tags[1][2] } },
+        { rule = { name = "Chrome" },
+        properties = { tag = tags[1][1] } },
         { rule = { name = "Thunderbird" },
-        properties = { tag = tags[1][3] } },
+        properties = { tag = tags[1][8] } },
     }
 end
 -- }}}

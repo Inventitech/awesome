@@ -125,7 +125,7 @@ audio_toggle = function () awful.util.spawn("clementine -t") end
 
 -- {{{ programs
 fileman = function () awful.util.spawn("qtfm") end
-browser = function () awful.util.spawn("chromium") end
+browser = function () awful.util.spawn("google-chrome") end
 urxvt = function () awful.util.spawn("urxvt") end
 screen_lock = function() awful.util.spawn("slock") end
 screenshot = function() awful.util.spawn("scrot") end
@@ -138,7 +138,8 @@ hibernate = function(wait)
     awful.util.spawn(cmd)
 end
 suspend = function() awful.util.spawn("sudo pm-suspend") end
-shutdown = function() awful.util.spawn("sudo halt") end
+shutdown = function() awful.util.spawn("sudo shutdown -h now") end
+reboot = function() awful.util.spawn("sudo reboot") end
 brightnessup = function() awful.util.spawn("xbacklight = 100") end
 brightnessdown = function() awful.util.spawn("xbacklight = 10") end
 -- }}}
