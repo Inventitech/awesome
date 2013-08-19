@@ -2,6 +2,7 @@
 local scratch = require("scratch")
 local wibox = require("wibox")
 local awful = require("awful")
+local networkStatus = "netctl list | awk '/*/ {print $2}'"
 
 -- helper functions {{{
 
@@ -177,7 +178,7 @@ end
 --
 -- {{{ network
 network = function()
-    local network = io.popen("netcfg current"):read("*all")
+    local network = io.popen(networkStatus):read("*all")
     if network then
         network = '<span color="#00FF00">' .. network .. '</span>'
     else
@@ -200,7 +201,7 @@ adapter = 'wlan0'
     	local connectionQuality = realSignalStrength/maximumSignalStrength*100
     	connectionQuality = string.format("% 3d", connectionQuality)
 
-		local network = io.popen("netcfg current"):read("*all")
+		local network = io.popen(networkStatus):read("*all")
 		network = string.match(network, "[^\n]+") -- Remove newline
 		if network ~= nil then
 			wifiStrength = string.format('%s:<span color="#00ff00"> %s%%</span>', network, connectionQuality)
