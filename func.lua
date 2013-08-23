@@ -2,7 +2,7 @@
 local scratch = require("scratch")
 local wibox = require("wibox")
 local awful = require("awful")
-local networkStatus = "netctl list | awk '/*/ {print $2}'"
+local networkStatus = "netctl-auto current"
 
 -- helper functions {{{
 
